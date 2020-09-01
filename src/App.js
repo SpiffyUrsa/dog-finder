@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import './App.css';
-// import Nav from './Nav';
+import Nav from './Nav';
 import DogList from './DogList';
-import DogDetails from './DogDetails';
+import DogFinder from './DogFinder';
 import whiskey from "./whiskey.jpg";
 import duke from "./duke.jpg";
 import perry from "./perry.jpg";
@@ -11,17 +11,18 @@ import tubby from "./tubby.jpg";
 
 function App(props) {
   const { dogs } = props;
+  const names = dogs.map( dog => dog.name);
 
   return (
     <div className="App">
       <BrowserRouter>
-        {/* <Nav /> */}
+        <Nav names={names}/>
         <Switch>
           <Route exact path="/dogs">
             <DogList dogs={dogs} /> 
           </Route>
           <Route path="/dogs/:name">
-            <DogDetails dogs={dogs} /> 
+            <DogFinder dogs={dogs} /> 
           </Route>
           <Redirect to="/dogs" />
         </Switch>

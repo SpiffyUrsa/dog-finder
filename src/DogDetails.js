@@ -13,15 +13,11 @@ import Dog from "./Dog";
  * 
  * App -> BrowserRouter -> Switch -> Route("/dogs/:name") -> DogDetails -> Dog
  */
-
-function DogDetails({ dogs }) {
-  const { name } = useParams();
-  const dog = dogs.find(dog => dog.name.toLowerCase() === name.toLowerCase());
-
+// TODO Change name of component
+function DogDetails({ dog }) {
   const { facts } = dog;
 
   const factsDisplay = facts.map((detail, idx) => <li key={idx}>{detail}</li>);
-
 
   return (
     <div className="DogDetails">

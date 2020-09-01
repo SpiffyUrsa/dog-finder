@@ -11,7 +11,6 @@ import { Link } from "react-router-dom";
  * 
  * App -> BrowserRouter("/dogs") -> Switch -> DogList -> Dog
  */
-
 function Dog(props) {
 
   const { name, age, src } = props.dog;
